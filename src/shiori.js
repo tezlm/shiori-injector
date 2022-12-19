@@ -3,47 +3,46 @@ import { getConfiguration } from "./configuration";
 export async function getTags() {
   const configuration = getConfiguration();
 
-  return fetch(`${configuration.baseUrl}/api/tags/?limit=1000`, {
+  return fetch(`${configuration.baseUrl}/api/tags`, {
     headers: {
-      Authorization: `Token ${configuration.token}`,
+      "X-Session-Id": configuration.token,
     },
   }).then((response) => {
     if (response.status === 200) {
-      return response.json().then((body) => body.results);
+      return response.json();
     }
     return Promise.reject(`Error loading tags: ${response.statusText}`);
   });
 }
 
-export async function search(text, options) {
+export async function search(text) {
   const configuration = getConfiguration();
   const q = encodeURIComponent(text);
-  const limit = options.limit || 100;
 
   return fetch(
-    `${configuration.baseUrl}/api/bookmarks/?q=${q}&limit=${limit}`,
+    `${configuration.baseUrl}/api/bookmarks/?keyword=${q}&page=1`,
     {
       headers: {
-        Authorization: `Token ${configuration.token}`,
+        "X-Session-Id": configuration.token,
       },
     }
   ).then((response) => {
     if (response.status === 200) {
-      return response.json().then((body) => body.results);
+      return response.json().then((body) => body.bookmarks);
     }
     return Promise.reject(`Error searching bookmarks: ${response.statusText}`);
   });
 }
 
 export async function testConnection(configuration) {
-  return fetch(`${configuration.baseUrl}/api/bookmarks/?limit=1`, {
+  return fetch(`${configuration.baseUrl}/api/bookmarks/?page=1`, {
     headers: {
-      Authorization: `Token ${configuration.token}`,
+      Authorization: configuration.token,
     },
   })
     .then((response) =>
       response.status === 200 ? response.json() : Promise.reject(response)
     )
-    .then((body) => !!body.results)
+    .then((body) => !!body.bookmarks)
     .catch(() => false);
 }

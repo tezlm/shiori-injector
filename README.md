@@ -1,4 +1,8 @@
-![logo](/icons/logo_full.svg)
+# Shiori injector
+
+This is a fork of [linkding-injector](https://github.com/Fivefold/linkding-injector) to work with shiori.
+
+Original readme below:
 
 Community browser extension for the self-hosted [linkding](https://github.com/sissbruecker/linkding) bookmark service.
 

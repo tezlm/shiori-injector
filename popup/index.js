@@ -1,2 +1,2 @@
 var appTarget = document.getElementById('app');
-new linkding.Popup({target: appTarget});
+new shiori.Popup({target: appTarget});

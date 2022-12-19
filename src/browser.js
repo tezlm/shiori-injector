@@ -29,7 +29,7 @@ export function openOptions() {
   opened and closed without saving options. The background script port closes
   seemingly indefinitely. The extension needs to be reloaded to fix it.
 
-  Since linkding injector does not use the svelte popup from linkding extension
+  Since shiori injector does not use the svelte popup from shiori extension
   window.close can be safely omitted because there's no window to close
   */
 }

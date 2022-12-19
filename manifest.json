@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "linkding injector",
+  "name": "shiori injector",
   "version": "1.2.0",
-  "description": "Injects search results from the linkding bookmark service into search pages like google and duckduckgo",
-  "homepage_url": "https://github.com/fivefold/linkding-injector.git",
+  "description": "Injects search results from the shiori bookmark service into search pages like google and duckduckgo",
+  "homepage_url": "https://github.com/tezlm/shiori-injector",
 
   "icons": {
     "19": "icons/logo_19.png",

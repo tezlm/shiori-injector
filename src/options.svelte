@@ -1,6 +1,6 @@
 <script>
   import { getConfiguration, saveConfiguration } from "./configuration";
-  import { testConnection } from "./linkding";
+  import { testConnection } from "./shiori";
 
   let baseUrl;
   let token;
@@ -50,9 +50,9 @@
 <div class="divider" />
 <p>
   This is a companion extension for the <a
-    href="https://github.com/sissbruecker/linkding">linkding</a
+    href="https://github.com/sissbruecker/shiori">shiori</a
   > bookmark service. Before you can start using it you have to configure some basic
-  settings, so that the extension can communicate with your linkding installation.
+  settings, so that the extension can communicate with your shiori installation.
 </p>
 <form class="form" on:submit|preventDefault={handleSubmit}>
   <div class="form-group">
@@ -61,11 +61,11 @@
       class="form-input"
       type="text"
       id="input-base-url"
-      placeholder="https://linkding.mydomain.com"
+      placeholder="https://shiori.mydomain.com"
       bind:value={baseUrl}
     />
     <div class="form-input-hint">
-      The base URL of your linkding installation, <b>without</b> the
+      The base URL of your shiori installation, <b>without</b> the
       <samp>/bookmark</samp> path or a trailing slash
     </div>
   </div>
@@ -79,8 +79,7 @@
       bind:value={token}
     />
     <div class="form-input-hint">
-      Used to authenticate against the linkding API. You can find this on your
-      linkding settings page.
+      Used to authenticate against the shiori API.
     </div>
   </div>
   <div class="form-group">
